@@ -1,0 +1,107 @@
+.parent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background-color: #EDF4F2;
+	background-size: cover;
+	height: 100vh;
+}
+
+hr {
+	border: none;
+	height: 3px;
+	background-color: #e26274;
+}
+
+.gradient-heading {
+	padding-bottom: 20px;
+	background: linear-gradient(to right, #31473A, #76814f, #e26274);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.login-box {
+	width: 30%;
+	height: 80%;
+	flex-direction: colummn;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	padding: 30px 20px 20px 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-btn {
+	background-color: #31473A;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	margin-bottom: 10px;
+	height: 40px;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+	background-color: #365945;
+}
+
+.signup-btn {
+	background-color: #7C8363;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	margin-bottom: 10px;
+	height: 40px;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+	background-color: #76814f;
+}
+
+.forgot-password {
+	display: block;
+	margin-top: 10px;
+	text-align: left;
+	padding-bottom: 10px;
+}
+
+.forgot-password a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+.forgot-password a:hover {
+	text-decoration: underline;
+}
