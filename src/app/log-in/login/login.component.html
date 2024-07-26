@@ -18,7 +18,53 @@
           </div>
         <div class="buttons">
             <button class="login-btn">Log In</button>
-            <button class="signup-btn">Sign Up</button>
+            <button class="signup-btn" (click)="openSignUp()">Sign Up</button>
         </div>
     </div>
 </div>
+
+<div class="modal" [ngClass]="{'show': showModal}">
+    <div class="modal-content">
+      <div class="model-header">
+        <h5>Sign Up</h5>
+        <span class="close" (click)="close()">&times;</span>
+      </div>
+      <hr>
+      <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+        <div class="form-group">
+          <label for="hotelName">Hotel Name</label>
+          <input type="text" id="hotelName" name="hotelName" ngModel required>
+        </div>
+  
+        <div class="form-group">
+          <label for="hotelType">Hotel Type</label>
+          <select id="hotelType" name="hotelType" ngModel required>
+            <option value="0" disabled selected>Select</option>
+            <option value="1">Luxury</option>
+            <option value="2">Boutique</option>
+            <option value="3">Budget</option>
+            <option value="4">Resort</option>
+            <option value="5">Hostel</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" ngModel required>
+            <option value="0" disabled selected>Select</option>
+            <option value="1">7-Star</option>
+            <option value="2">5-Star</option>
+            <option value="3">3-Star</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="totalRooms">Total Rooms</label>
+          <input id="totalRooms" name="totalRooms" type="number" ngModel required>
+        </div>
+  
+        <button class="submit-button" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
