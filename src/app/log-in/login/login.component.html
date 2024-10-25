@@ -1,27 +1,27 @@
 <div class="parent">
-    <h3 class="gradient-heading">
-        Advanced Hotel Management System
-    </h3>
-    <div class="login-box">
-        <h4 style="text-align: center;">Log In</h4>
-        <hr>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter Username">
-        </div>
-        <div class="form-group">
-            <label for="Password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password">
-        </div>
-        <div class="forgot-password">
-            <a href="#forgot-password">Forgot Password?</a>
-          </div>
-        <div class="buttons">
-            <button class="login-btn">Log In</button>
-            <button class="signup-btn" (click)="openSignUp()">Sign Up</button>
-        </div>
+  <h3 class="gradient-heading">Advanced Hotel Management System</h3>
+  <div class="login-box">
+    <h4 style="text-align: center;">Log In</h4>
+    <hr>
+    <div class="form-group">
+      <label for="uniqueHotelId">Unique Hotel Id</label>
+      <input type="text" id="uniqueHotelId" name="hotelName" placeholder="Enter Unique Hotel Id" [(ngModel)]="uniqueId">
     </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter Password" [(ngModel)]="password">
+    </div>
+    <div class="forgot-password">
+      <a href="#forgot-password">Forgot Password?</a>
+    </div>
+    <span *ngIf="inValidaLogin" class="error text-danger">{{ loginError }}</span>
+    <div class="buttons">
+      <button class="login-btn" (click)="logInButton()">Log In</button>
+      <button class="signup-btn" (click)="openSignUp()">Sign Up</button>
+    </div>
+  </div>
 </div>
+
 
 <div class="modal" [ngClass]="{'show': showModal}">
     <div class="modal-content">
