@@ -1,1 +1,2 @@
-<router-outlet></router-outlet>
+<app-home-page *ngIf="!showLogin"></app-home-page>
+<app-login *ngIf="showLogin" (loginSuccess)="loginSuccess()"></app-login>

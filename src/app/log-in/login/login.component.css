@@ -71,6 +71,7 @@ select {
 	border-radius: 5px;
 	outline: none;
 	border: none;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 40px;
 	color: #fff;
@@ -184,4 +185,9 @@ button:hover {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.error {
+	padding: 5px;
+	font-size: medium;
 }
