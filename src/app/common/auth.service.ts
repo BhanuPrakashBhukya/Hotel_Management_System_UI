@@ -4,6 +4,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { ConfigService } from './config.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AbstractCommonService } from './common.abstract.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,14 +16,13 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService extends ConfigService {
-  private url = environment.url + '/hotel/v1';
+  private url = AbstractCommonService.baseUrl
 
   constructor(private http: HttpClient) {
     super();
   }
 
   logIn(uniqueId: string, password: string): Observable<any> {
-    debugger;
     const logInData = {
       identifier: uniqueId,
       password: password,
@@ -56,5 +56,10 @@ export class AuthService extends ConfigService {
     let jwtHelper = new JwtHelperService();
     const token: string | null = localStorage.getItem('jwt');
     return token != null && !jwtHelper.isTokenExpired(token);
+  }
+
+  logOut(): void {
+    localStorage.removeItem('jwt');
+    window.location.reload();
   }
 }

@@ -1,4 +1,4 @@
-.parent {
+.login-parent {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -57,9 +57,9 @@ select {
 	box-sizing: border-box;
 }
 
-.form-group {
+/* .form-group {
 	margin-bottom: 15px;
-}
+} */
 
 .buttons {
 	display: flex;
@@ -134,19 +134,24 @@ select {
 .modal-content {
 	background-color: #EDF4F2;
 	margin: 5% auto;
+	left: 0;
+	top: -5%;
 	padding: 20px;
 	width: 80%;
-	max-width: 600px;
+	max-width: 1000px;
 	position: relative;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .close {
-	font-size: 24px;
-	cursor: pointer;
-	color: #aaa;
-	transform: translateY(-15px);
-}
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+  }
 
 .close:hover,
 .close:focus {
@@ -165,11 +170,17 @@ select {
 	box-sizing: border-box;
 }
 
+.submit-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
 .submit-button {
 	background-color: #31473A;
 	border-radius: 5px;
 	outline: none;
 	border: none;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	height: 40px;
 	color: #fff;
@@ -191,3 +202,21 @@ button:hover {
 	padding: 5px;
 	font-size: medium;
 }
+
+.form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between fields */
+  }
+
+  .form-group {
+    flex: 1 1 calc(50% - 20px); /* Make each form group take 50% of the width minus the gap */
+    min-width: 250px; /* Set a minimum width for smaller screens */
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }

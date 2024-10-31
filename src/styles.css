@@ -4,3 +4,9 @@
 body {
     font-family: Montserrat;
 }
+
+.parent {
+	background-color: #EDF4F2;
+	background-size: cover;
+	min-height: 100vh;
+}

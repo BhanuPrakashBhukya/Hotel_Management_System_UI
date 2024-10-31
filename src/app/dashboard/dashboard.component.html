@@ -1,0 +1,12 @@
+<div class="header-container">
+    <div class="logo">My Application</div>
+    <img class="profile" src="assets/user_placeholder.svg" alt="" (click)="toggleDropdown()">
+
+    <div class="dropdown-menu" [class.active]="isDropdownActive">
+        <ul>
+            <li (click)="onOptionSelect('profile')">Profile</li>
+            <li (click)="onOptionSelect('changePassword')">Change Password</li>
+            <li (click)="onOptionSelect('logout')">Logout</li>
+        </ul>
+    </div>
+</div>
