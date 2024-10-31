@@ -1,2 +1,4 @@
-<app-home-page *ngIf="!showLogin"></app-home-page>
+<app-home-page *ngIf="!showLogin">
+    <!-- <app-dashboard></app-dashboard> -->
+</app-home-page>
 <app-login *ngIf="showLogin" (loginSuccess)="loginSuccess()"></app-login>

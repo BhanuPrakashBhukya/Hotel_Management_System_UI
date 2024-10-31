@@ -1,15 +1,15 @@
-<div class="parent">
+<div class="login-parent">
   <h3 class="gradient-heading">Advanced Hotel Management System</h3>
   <div class="login-box">
     <h4 style="text-align: center;">Log In</h4>
     <hr>
     <div class="form-group">
       <label for="uniqueHotelId">Unique Hotel Id</label>
-      <input type="text" id="uniqueHotelId" name="hotelName" placeholder="Enter Unique Hotel Id" [(ngModel)]="uniqueId">
+      <input type="text" id="uniqueHotelId" name="hotelName" placeholder="Enter Unique Hotel Id" [(ngModel)]="uniqueId" (keydown.enter)="focusNextField(passwordInput)">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password" [(ngModel)]="password">
+      <input type="password" id="password" name="password" placeholder="Enter Password" [(ngModel)]="password" #passwordInput (keydown.enter)="logInButton()">
     </div>
     <div class="forgot-password">
       <a href="#forgot-password">Forgot Password?</a>
@@ -22,49 +22,82 @@
   </div>
 </div>
 
-
 <div class="modal" [ngClass]="{'show': showModal}">
-    <div class="modal-content">
-      <div class="model-header">
-        <h5>Sign Up</h5>
-        <span class="close" (click)="close()">&times;</span>
-      </div>
-      <hr>
-      <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Sign Up</h5>
+      <span class="close" (click)="close()">&times;</span>
+    </div>
+    <hr>
+    <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+      <div class="form-grid">
         <div class="form-group">
-          <label for="hotelName">Hotel Name</label>
-          <input type="text" id="hotelName" name="hotelName" ngModel required>
+          <label for="name">Hotel Name</label>
+          <input type="text" id="name" name="name" placeholder="Please enter hotel name" [(ngModel)]="form.name" required>
         </div>
-  
+
         <div class="form-group">
-          <label for="hotelType">Hotel Type</label>
-          <select id="hotelType" name="hotelType" ngModel required>
-            <option value="0" disabled selected>Select</option>
-            <option value="1">Luxury</option>
-            <option value="2">Boutique</option>
-            <option value="3">Budget</option>
-            <option value="4">Resort</option>
-            <option value="5">Hostel</option>
-          </select>
+          <label for="phone">Mobile Number</label>
+          <input type="text" id="phone" name="phone" placeholder="Please enter Mobile or Landline number" [(ngModel)]="form.phone" required>
         </div>
-  
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Please enter you email" [(ngModel)]="form.email" required>
+        </div>
+
         <div class="form-group">
           <label for="category">Category</label>
-          <select id="category" name="category" ngModel required>
+          <select id="category" name="category" [(ngModel)]="form.category" required>
             <option value="0" disabled selected>Select</option>
-            <option value="1">7-Star</option>
-            <option value="2">5-Star</option>
-            <option value="3">3-Star</option>
+            <option value="1">Star Rating</option>
+            <option value="2">Boutique</option>
+            <option value="3">Resort</option>
+            <option value="4">Business</option>
           </select>
         </div>
-  
+
         <div class="form-group">
-          <label for="totalRooms">Total Rooms</label>
-          <input id="totalRooms" name="totalRooms" type="number" ngModel required>
+          <label for="addressFirstLine">Address Line 1</label>
+          <input type="text" id="addressFirstLine" name="addressFirstLine" placeholder="Please enter Address" [(ngModel)]="form.addressFirstLine" required>
         </div>
-  
+
+        <div class="form-group">
+          <label for="addressSecondLine">Address Line 2</label>
+          <input type="text" id="addressSecondLine" name="addressSecondLine" placeholder="Please enter Address" [(ngModel)]="form.addressSecondLine" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="Please enter your city" [(ngModel)]="form.city" required>
+        </div>
+
+        <div class="form-group">
+          <label for="pinCode">Pin Code</label>
+          <input type="text" id="pinCode" name="pinCode" placeholder="Please enter pin code" [(ngModel)]="form.pinCode" required>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <select id="state" name="state" [(ngModel)]="form.state" required>
+            <option value="0" disabled selected>Select State</option>
+            <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" name="country" [(ngModel)]="form.country" required>
+            <option value="0" disabled selected>Select Country</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+          </select>
+        </div>
+        
+      </div>
+      <div class="submit-container">
         <button class="submit-button" type="submit">Submit</button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>
   
