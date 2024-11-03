@@ -1,0 +1,15 @@
+<mat-card *ngIf="mode !== 'list'">
+    <h2>{{ mode | titlecase }} {{ entityName }}</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <ng-container *ngFor="let field of fields">
+            <mat-form-field appearance="outline">
+                <mat-label>{{ field.label }}</mat-label>
+                <input matInput [formControlName]="field.name" [type]="field.type" [readonly]="mode === 'read'" />
+            </mat-form-field>
+        </ng-container>
+
+        <div *ngIf="mode !== 'read'" class="form-actions">
+            <button mat-raised-button color="primary" type="submit">{{ mode | titlecase }}</button>
+        </div>
+    </form>
+</mat-card>

@@ -1,14 +1,25 @@
 .header-container {
-    background-color: #4287f5;
-    height: 60px;
+    background-color: #383836;
+    height: 65px;
     width: 99%;
     padding: 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 10px;
+    margin-top: 8px;
+    border-radius: 10px 10px 0 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     position: relative;
+    box-shadow: -4px 0 8px -4px rgba(0, 0.5, 0, 0.5);
+}
+
+.logo {
+    color: #ddd;
+}
+
+hr {
+    border: none;
+    height: 3px;
+    background-color: #e26274;
 }
 
 .profile {
@@ -22,9 +33,9 @@
     display: none;
     position: absolute;
     right: 10px;
-    top: 60px;
-    background-color: white;
-    border: 1px solid #ddd;
+    top: 65px;
+    background-color: #EDF4F2;
+    border: 1px solid #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 150px;
@@ -47,5 +58,91 @@
 }
 
 .dropdown-menu ul li:hover {
-    background-color: #f0f0f0;
+    background-color: #fff;
+}
+
+/* change passowrd pop up styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    z-index: 1000;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: #EDF4F2;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    text-align: center;
+    margin: 100px 100px 0 0;
+}
+
+.modal-overlay h4 {
+    background: linear-gradient(to right, #31473A, #76814f, #e26274);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.form-field {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.form-field label {
+    text-align: right;
+}
+
+.form-field input {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 90%;
+}
+
+.model-footer {
+    margin-top: 20px;
+}
+
+.model-footer button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    margin: 10px;
+    color: #EDF4F2;
+    border-radius: 5%;
+    transition: background-color 0.3s ease;
+}
+
+.close-button {
+    background-color: rgb(162, 59, 59);
+}
+
+.close-button:hover {
+    background-color: rgb(159, 44, 44);
+}
+
+.submit-button {
+    background-color: #383836;
+}
+
+.submit-button:hover{
+    background-color: #20201f;
 }

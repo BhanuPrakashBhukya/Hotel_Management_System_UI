@@ -27,4 +27,16 @@ export class LoginService extends AbstractCommonService<Login> {
   register(hotel: Hotel): Observable<any> {
     return this.http.post<any>(this.fullUrl + "register", hotel);
   }
+
+  changePassword(password: string): Observable<any> {
+    debugger
+    const id = localStorage.getItem("hoteId");
+    const logInData = {
+      id: id,
+      password: password,
+    };
+    return this.http.put<any>(this.fullUrl + "changepassword", logInData, {
+      headers: this.getHttpHeaders()
+    });
+  }
 }
