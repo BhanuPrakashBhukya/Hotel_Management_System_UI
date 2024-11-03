@@ -1,3 +1,29 @@
 .home-parent {
-    padding-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+app-side-lhn {
+    width: 5%;
+    min-width: 5%;
+    height: 100%;
+}
+
+app-dashboard {
+    flex-grow: 1;
+    height: 100%;
+}
+
+app-main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #f9f9f9;
 }

@@ -84,6 +84,12 @@ export class LoginComponent implements OnInit {
         if (response && response['jwt']) {
           const token = response['jwt'];
           localStorage.setItem('jwt', token);
+
+          const payloadBase64 = token.split('.')[1];
+          const payload = JSON.parse(atob(payloadBase64));
+          const hotelId = payload.aud;
+          localStorage.setItem('hoteId', hotelId);
+
           this.loginSuccess.emit();
         }
       },

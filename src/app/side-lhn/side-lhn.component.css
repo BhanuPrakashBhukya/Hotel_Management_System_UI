@@ -1,0 +1,50 @@
+.logo {
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+}
+
+ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.lhn-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lhn-logos ul {
+    cursor: pointer;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    border-radius: 8px 0 0 8px;
+    padding: 10px;
+}
+
+.lhn-logos ul:hover {
+    background-color: #d0ddf2;
+}
+
+.lhn-logos ul li img {
+    width: 45px;
+    height: 45px;
+    padding-bottom: 2px;
+}
+
+.lhn-logos ul li span {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #383836;
+}
+
+.lhn-logos ul.active {
+    background-color: #d0ddf2;
+    border-radius: 5px 0 0 5px;
+}
