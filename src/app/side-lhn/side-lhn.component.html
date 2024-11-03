@@ -1,1 +1,11 @@
-<p>side-lhn works!</p>
+<div>
+    <div>
+        <img class="logo" src="assets/hmsLogo.svg" alt="">
+    </div>
+    <div class="lhn-logos">
+        <ul *ngFor="let item of items; let i = index" (click)="setActive(i)" [ngClass]="{ 'active': isActive(i) }">
+            <li><img [src]="'assets/icons8-' + item.toLowerCase() + '-48.svg'" alt="{{ item }} icon"></li>
+            <span>{{ item }}</span>
+        </ul>
+    </div>    
+</div>

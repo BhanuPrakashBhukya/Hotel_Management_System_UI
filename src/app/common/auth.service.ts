@@ -62,4 +62,5 @@ export class AuthService extends ConfigService {
     localStorage.removeItem('jwt');
     window.location.reload();
   }
+
 }

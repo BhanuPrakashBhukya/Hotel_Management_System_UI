@@ -1,5 +1,4 @@
 <div class="header-container">
-    <div class="logo">My Application</div>
     <img class="profile" src="assets/user_placeholder.svg" alt="" (click)="toggleDropdown()">
 
     <div class="dropdown-menu" [class.active]="isDropdownActive">
@@ -8,5 +7,31 @@
             <li (click)="onOptionSelect('changePassword')">Change Password</li>
             <li (click)="onOptionSelect('logout')">Logout</li>
         </ul>
+    </div>
+</div>
+
+<!-- Change Password Modal -->
+<div *ngIf="isChangePasswordModalOpen" class="modal-overlay" (click)="closeChangePasswordModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <h4>Change password</h4>
+        <hr>
+        <form (ngSubmit)="onChangePassword()" #passwordForm="ngForm">
+            <div class="form-field">
+                <label for="newPassword">New</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="New Password" [(ngModel)]="newPassword" required />
+            </div>
+            <div class="form-field">
+                <label for="confirmPassword">Confirm</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword"
+                    (ngModelChange)="validatePasswordMatch()" required />
+            </div>
+            <div *ngIf="passwordMismatch" class="error-message">
+                Passwords do not match.
+            </div>
+            <div class="model-footer">
+                <button type="button" class="close-button" (click)="closeChangePasswordModal()">Cancel</button>
+                <button type="submit" class="submit-button" [disabled]="passwordMismatch">Change</button>
+            </div>
+        </form>
     </div>
 </div>

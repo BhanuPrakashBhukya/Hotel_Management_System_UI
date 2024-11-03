@@ -6,11 +6,6 @@ import { Injectable } from '@angular/core';
 })
   export class ConfigService {
 
-    getHttpHeaders(): HttpHeaders {
-      return new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      });
-    }
+    
 
   }
