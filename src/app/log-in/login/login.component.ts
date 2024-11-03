@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
           const payload = JSON.parse(atob(payloadBase64));
           const hotelId = payload.aud;
           localStorage.setItem('hoteId', hotelId);
-
+          
           this.loginSuccess.emit();
         }
       },

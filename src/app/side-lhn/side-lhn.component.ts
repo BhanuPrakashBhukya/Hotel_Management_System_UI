@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './side-lhn.component.css'
 })
 export class SideLhnComponent {
-
+  
   activeItemIndex = 0;
   items = ['Home', 'Hotels', 'Rooms'];
 
@@ -38,5 +38,4 @@ export class SideLhnComponent {
   isActive(index: number): boolean {
     return this.activeItemIndex === index;
   }
-  
 }

@@ -44,7 +44,6 @@ export class DashboardComponent {
       this.auth.logOut();
     } else if(option === 'changePassword') {
       this.openChangePasswordModal();
-    }
     this.isDropdownActive = false;
   }
 
@@ -76,5 +75,4 @@ export class DashboardComponent {
       })
     }
   }
-
 }
