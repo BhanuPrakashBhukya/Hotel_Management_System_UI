@@ -13,13 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { HotelBranchesModule } from './hotel-branches/hotel-branches.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
-    importProvidersFrom(CommonModule, RouterModule.forRoot(routes), BrowserModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, NgxSpinnerModule, HttpClientModule, LoginModule, HotelBranchesModule),
+    importProvidersFrom(BrowserAnimationsModule, CommonModule, RouterModule.forRoot(routes), BrowserModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatTableModule, NgxSpinnerModule, HttpClientModule, LoginModule, HotelBranchesModule),
     provideHttpClient(withFetch())
   ],
 };

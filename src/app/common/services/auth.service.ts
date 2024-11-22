@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { ConfigService } from './config.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AbstractCommonService } from './common.abstract.service';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,7 +18,7 @@ const httpOptions = {
 export class AuthService extends ConfigService {
   private url = AbstractCommonService.baseUrl
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     super();
   }
 
@@ -60,6 +60,9 @@ export class AuthService extends ConfigService {
 
   logOut(): void {
     localStorage.removeItem('jwt');
-    window.location.reload();
+    this.router.navigateByUrl('').then(() => {
+      this.router.navigate(['']);
+      window.location.reload();
+    });
   }
 }

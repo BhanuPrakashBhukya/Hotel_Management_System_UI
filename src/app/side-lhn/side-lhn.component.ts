@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SideLhnComponent {
   
-  activeItemIndex = 0;
+  activeItemIndex = -1;
   items = ['Home', 'Hotels', 'Rooms'];
 
   constructor(private router: Router) {}
@@ -30,7 +30,6 @@ export class SideLhnComponent {
     if (index === 0) {
       this.router.navigate(['home']);
     } else if (index === 1) {
-      debugger
       this.router.navigate(['branches']);
     }
   }

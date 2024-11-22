@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Injectable, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../common/auth.service';
+import { AuthService } from '../../common/services/auth.service';
 import { LoginService } from '../service/login.service';
 import { Country } from '../../country';
 import { States } from '../../states';

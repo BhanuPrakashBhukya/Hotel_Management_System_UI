@@ -1,1 +1,11 @@
-<p>hotel-branches-list works!</p>
+<app-shared-list
+  [componentName]="title"
+  [response]="response"
+  [tableHeaders]="tableHeaders"
+  (rowSelect)="onRowSelect($event)"
+  [showSearch]="true"
+  [showAddButton]="true"
+  [showActionButton]="true"
+  [actions]="actions" 
+  (actionSelected)="onActionSelected($event)">
+</app-shared-list>
