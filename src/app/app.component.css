@@ -27,3 +27,7 @@ app-main-content {
     overflow-y: auto;
     background-color: #f9f9f9;
 }
+
+.loader ::ng-deep .overlay {
+    position: fixed !important;
+}

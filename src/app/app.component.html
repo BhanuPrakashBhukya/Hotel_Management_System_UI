@@ -7,3 +7,7 @@
     </div>
 </div>
 <app-login *ngIf="showLogin" (loginSuccess)="loginSuccess()"></app-login>
+<ngx-spinner class="loader" dbOpacity=0 size="medium" color="yellow" type="ball-circus"
+    [fullScreen]="true" >
+    <p style="color: beige;"></p>
+</ngx-spinner>

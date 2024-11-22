@@ -1,13 +1,75 @@
-<mat-card>
-    <h2>{{ entityName }} List</h2>
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container *ngFor="let column of columns" [matColumnDef]="column.key">
-        <mat-header-cell *matHeaderCellDef> {{ column.header }} </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{ element[column.key] }} </mat-cell>
+<mat-card class="list-container">
+  <div class="header-container">
+    <h5 style="background: linear-gradient(to right, #31473A, #76814f, #e26274);
+        background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        padding: 20px 10px 10px 15px;">
+      {{ componentName }} List
+    </h5>
+    <div class="header-container-left-section">
+
+      <mat-form-field *ngIf="showSearch" appearance="outline" class="search-field">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search" [formControl]="searchControl" />
+      </mat-form-field>
+
+      <button *ngIf="showAddButton" mat-icon-button matTooltip="New">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button *ngIf="showActionButton" mat-icon-button matTooltip="Actions" [matMenuTriggerFor]="actionMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #actionMenu="matMenu">
+        <button mat-menu-item *ngFor="let action of actions" (click)="onActionClick(action.value)">
+          {{ action.label }}
+        </button>
+      </mat-menu>
+
+    </div>
+  </div>
+
+  <hr>
+  
+  <div class="table-container">
+    <mat-table [dataSource]="tableDataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="onSelectAllRows($event)" [checked]="isAllSelected()"
+            [indeterminate]="isIndeterminate()"></mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox (change)="onSelectRow(row, $event)" [checked]="isSelected(row)"></mat-checkbox>
+        </mat-cell>
       </ng-container>
-  
+
+      <ng-container *ngFor="let tableHeader of tableHeaders" [matColumnDef]="tableHeader.key">
+        <mat-header-cell *matHeaderCellDef>{{ tableHeader.header }}</mat-header-cell>
+
+        <mat-cell *matCellDef="let element">
+          <ng-container *ngIf="tableHeader.isHyperlink; else regularText">
+            <a href="javascript:void(0)" (click)="onLinkClick(element[tableHeader.key])" class="hyperlink">
+              {{ element[tableHeader.key] }}
+            </a>
+          </ng-container>
+          <ng-template #regularText>
+            <span *ngIf="isString(element[tableHeader.key]); else noSlice" matTooltip="{{ element[tableHeader.key] }}"
+              [matTooltipDisabled]="!element[tableHeader.key] || element[tableHeader.key].length <= 15"
+              matTooltipClass="custom-tooltip">
+              {{ element[tableHeader.key] | slice:0:15 }}{{ element[tableHeader.key]?.length > 15 ? '...' : '' }}
+            </span>
+            <ng-template #noSlice>
+              {{ element[tableHeader.key] }}
+            </ng-template>
+          </ng-template>
+        </mat-cell>
+      </ng-container>
+
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelect(row)"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelect(row)" class="table-row"></mat-row>
     </mat-table>
-  </mat-card>
-  
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+</mat-card>
