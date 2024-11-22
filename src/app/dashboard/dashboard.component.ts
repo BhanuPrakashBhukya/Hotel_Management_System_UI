@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { AuthService } from '../common/auth.service';
+import { AuthService } from '../common/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../log-in/service/login.service';
 
@@ -44,7 +44,8 @@ export class DashboardComponent {
       this.auth.logOut();
     } else if(option === 'changePassword') {
       this.openChangePasswordModal();
-    this.isDropdownActive = false;
+      this.isDropdownActive = false;
+    }
   }
 
   openChangePasswordModal() {
@@ -65,9 +66,7 @@ export class DashboardComponent {
   onChangePassword() {
     this.validatePasswordMatch();
     if (!this.passwordMismatch) {
-      debugger;
       this.loginService.changePassword(this.newPassword).subscribe(response => {
-        debugger
         this.isChangePasswordModalOpen = false;
         this.auth.logOut();
       }, error => {

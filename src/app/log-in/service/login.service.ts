@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../../country';
-import { AbstractCommonService } from '../../common/common.abstract.service';
+import { AbstractCommonService } from '../../common/services/common.abstract.service';
 import { Login } from '../modules/login';
 import { States } from '../../states';
 import { Hotel } from '../../hotel/hotel';
@@ -29,7 +29,6 @@ export class LoginService extends AbstractCommonService<Login> {
   }
 
   changePassword(password: string): Observable<any> {
-    debugger
     const id = localStorage.getItem("hoteId");
     const logInData = {
       id: id,

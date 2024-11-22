@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from './log-in/login/login.component';
-import { AuthService } from './common/auth.service';
+import { AuthService } from './common/services/auth.service';
 import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner'; 
